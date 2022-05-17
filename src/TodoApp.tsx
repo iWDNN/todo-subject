@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { categoriesState, curCategoryState, toDoState } from "./atom";
+import { categoriesState, toDoState } from "./atom";
 import CategoryList from "./components/CategoryList";
 import CreateCategory from "./components/CreateCategory";
 import CreateToDo from "./components/CreateToDo";
@@ -34,7 +34,6 @@ const Title = styled.h1`
 function ToDoApp() {
   const [category, setCategory] = useRecoilState(categoriesState);
   const [toDos, setToDos] = useRecoilState(toDoState);
-  const [curCat, setCurCat] = useRecoilState(curCategoryState);
   useEffect(() => {
     if (localStorage.getItem("toDos") && localStorage.getItem("categories")) {
       setToDos(JSON.parse(localStorage.getItem("toDos") as any));
