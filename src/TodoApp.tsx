@@ -35,8 +35,10 @@ function ToDoApp() {
   const [category, setCategory] = useRecoilState(categoriesState);
   const [toDos, setToDos] = useRecoilState(toDoState);
   useEffect(() => {
-    if (localStorage.getItem("toDos") && localStorage.getItem("categories")) {
+    if (localStorage.getItem("toDos")) {
       setToDos(JSON.parse(localStorage.getItem("toDos") as any));
+    }
+    if (localStorage.getItem("categories")) {
       setCategory(JSON.parse(localStorage.getItem("categories") as any));
     }
   }, []);
